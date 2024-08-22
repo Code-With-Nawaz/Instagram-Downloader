@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { fetchInstagramVideo as fetchVideoV1 } from '../api1';
 import { fetchInstagramVideo as fetchVideoV2 } from '../api2';
+import { Helmet } from "react-helmet-async";
 
 function InstagramReelDownload() {
   const [url, setUrl] = useState('');
@@ -67,8 +68,14 @@ function InstagramReelDownload() {
   };
 
   return (
+    <> <Helmet>
+    <title>Instagram Reel Downloader - Fast and Easy</title>
+    <meta name="description" content="Download Instagram Reels quickly and easily with our free online tool." />
+    <meta name="keywords" content="Instagram, Reel Downloader, Video Download, Instagram Reel, Save Instagram Reels" />
+  </Helmet>
+   
     <main className="flex-grow min-h-screen flex items-center justify-center p-4 sm:p-6 bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-800">
-      <div className="bg-white rounded-lg p-6 sm:p-8 shadow-2xl w-full max-w-md sm:max-w-lg">
+      <div className="flip-in bg-white rounded-lg p-6 sm:p-8 shadow-2xl w-full max-w-md sm:max-w-lg">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-center mb-6 text-gray-900">Instagram Video Downloader</h1>
         <p className="text-center text-gray-600 mb-6">Enter the Instagram video URL below to fetch and download the video.</p>
         <input
@@ -127,6 +134,7 @@ function InstagramReelDownload() {
         )}
       </div>
     </main>
+    </>
   );
 }
 

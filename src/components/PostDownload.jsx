@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from "react-helmet-async";
 // import { fetchInstagramPost as fetchPostV1 } from '../api1'; // Adjust import based on your actual API file
 // import { fetchInstagramPost as fetchPostV2 } from '../api2'; // Adjust import based on your actual API file
 
@@ -67,8 +68,14 @@ function PostDownload() {
   };
 
   return (
+    <>
+    
+    <Helmet>
+        <title>Instagram Post Downloader - Save Images and Videos</title>
+        <meta name="description" content="Easily download Instagram posts, including images and videos, directly to your device." />
+      </Helmet>
     <main className="flex-grow min-h-lvh flex items-center justify-center p-4 sm:p-6 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700">
-      <div className="bg-white rounded-lg p-6 sm:p-8 shadow-lg w-full max-w-md sm:max-w-lg">
+      <div className="flip-in bg-white rounded-lg p-6 sm:p-8 shadow-lg w-full max-w-md sm:max-w-lg">
         <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 text-gray-800">Instagram Post Downloader</h1>
         <p className="text-center text-gray-600 mb-6">Enter the Instagram post URL below to fetch and download the post.</p>
         <input
@@ -78,7 +85,7 @@ function PostDownload() {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
-        <div className="flex justify-between mb-4">
+        <div className="flex justify-between mb-4 space-x-2">
           <button
             className={`w-full p-3 rounded-lg transition ${useVersion === 1 ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-700'}`}
             onClick={() => setUseVersion(1)}
@@ -124,6 +131,8 @@ function PostDownload() {
         )}
       </div>
     </main>
+    
+    </>
   );
 }
 

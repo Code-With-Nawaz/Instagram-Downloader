@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { fetchInstagramVideo as fetchStoryV1 } from '../api1';
 import { fetchInstagramVideo as fetchStoryV2 } from '../api2';
 
+import { Helmet } from "react-helmet-async";
+
 function StoryDownload() {
   const [url, setUrl] = useState('');
   const [storyData, setStoryData] = useState(null);
@@ -68,8 +70,15 @@ function StoryDownload() {
   };
 
   return (
-    <main className="flex-grow min-h-lvh flex items-center justify-center p-4 sm:p-6 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700">
-      <div className="bg-white rounded-lg p-6 sm:p-8 shadow-lg w-full max-w-md sm:max-w-lg">
+    <>
+    
+    <Helmet>
+        <title>Instagram Story Downloader - Save Stories</title>
+        <meta name="description" content="Download Instagram stories, both images and videos, directly to your device." />
+        <meta name="keywords" content="Instagram, Story Downloader, Save Instagram Stories, Download Stories" />
+      </Helmet>
+      <main className="flex-grow min-h-lvh flex items-center justify-center p-4 sm:p-6 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700">
+      <div className="slide-in-left bg-white rounded-lg p-6 sm:p-8 shadow-lg w-full max-w-md sm:max-w-lg">
         <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 text-gray-800">Instagram Story Downloader</h1>
         <p className="text-center text-gray-600 mb-6">Enter the Instagram story URL below to fetch and download the story.</p>
         <input
@@ -79,7 +88,7 @@ function StoryDownload() {
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
-        <div className="flex justify-between mb-4">
+        <div className="flex justify-between mb-4 space-x-2">
           <button
             className={`w-full p-3 rounded-lg transition ${useVersion === 1 ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-700'}`}
             onClick={() => setUseVersion(1)}
@@ -128,6 +137,9 @@ function StoryDownload() {
         )}
       </div>
     </main>
+
+    </>
+    
   );
 }
 

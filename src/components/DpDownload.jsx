@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { fetchInstagramUserData } from "./api/instainfoapi";
+import { Helmet } from "react-helmet-async";
 
 function DpDownload() {
   const [input, setInput] = useState(""); // Combined input for URL or username
@@ -65,8 +66,15 @@ function DpDownload() {
   };
 
   return (
+    <>
+     <Helmet>
+        <title>Instagram Profile Picture Downloader - Save HD Images</title>
+        <meta name="description" content="Download high-quality Instagram profile pictures to your device with ease." />
+        <meta name="keywords" content="Instagram, Profile Picture Downloader, HD Profile Picture, Save Instagram DP" />
+      </Helmet>
+      
     <main className="flex-grow min-h-screen flex items-center justify-center p-4 sm:p-6 bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-700">
-      <div className="bg-white rounded-lg p-6 sm:p-8 shadow-lg w-full max-w-md sm:max-w-lg">
+      <div className="slide-in-right bg-white rounded-lg p-6 sm:p-8 shadow-lg w-full max-w-md sm:max-w-lg">
         <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 text-gray-800">
           Instagram Profile Picture Downloader
         </h1>
@@ -112,6 +120,7 @@ function DpDownload() {
         {error && <p className="text-red-500 text-center mt-4">{error}</p>}
       </div>
     </main>
+    </>
   );
 }
 

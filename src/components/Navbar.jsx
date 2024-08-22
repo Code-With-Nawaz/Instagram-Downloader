@@ -43,20 +43,21 @@ const Navbar = () => {
               `${isActive ? "bg-green-500 text-white" : "text-white"} flex items-center justify-center hover:bg-indigo-500 transition px-4 py-2 rounded text-sm`
             }>Instagram Reel Download</NavLink>
           </li>
+          
+          <li>
+            <NavLink to="/story-download" onClick={closeMenu} className={({ isActive }) =>
+              `${isActive ? "bg-green-500 text-white" : "text-white"} flex items-center justify-center hover:bg-indigo-500 transition px-4 py-2 rounded text-sm`
+            }>Story Download</NavLink>
+          </li>
           <li>
             <NavLink to="/post-download" onClick={closeMenu} className={({ isActive }) =>
               `${isActive ? "bg-green-500 text-white" : "text-white"} flex items-center justify-center hover:bg-indigo-500 transition px-4 py-2 rounded text-sm`
             }>Post Download</NavLink>
           </li>
           <li>
-            <NavLink to="/dp-download" onClick={closeMenu} className={({ isActive }) =>
+            <NavLink to="/profile-picture-download" onClick={closeMenu} className={({ isActive }) =>
               `${isActive ? "bg-green-500 text-white" : "text-white"} flex items-center justify-center hover:bg-indigo-500 transition px-4 py-2 rounded text-sm`
             }>Profile Picture Download</NavLink>
-          </li>
-          <li>
-            <NavLink to="/story-download" onClick={closeMenu} className={({ isActive }) =>
-              `${isActive ? "bg-green-500 text-white" : "text-white"} flex items-center justify-center hover:bg-indigo-500 transition px-4 py-2 rounded text-sm`
-            }>Story Download</NavLink>
           </li>
           <li>
             <NavLink to="/instagram-information" onClick={closeMenu} className={({ isActive }) =>
